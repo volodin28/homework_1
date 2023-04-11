@@ -20,19 +20,19 @@ if __name__ == '__main__':
     assert parse('http://domain.com?productid=xyz') == {'productid': 'xyz'}
 
 
-# def parse_cookie(query: str) -> dict:
-#     parsed_url = urlparse(query)
-#     return dict(parse_qsl(parsed_url.path) + parse_qsl(parsed_url.params, separator=';'))
-#
-#
-# if __name__ == '__main__':
-#     assert parse_cookie('name=Dima;') == {'name': 'Dima'}
-#     assert parse_cookie('') == {}
-#     assert parse_cookie('name=Dima;age=28;') == {'name': 'Dima', 'age': '28'}
-#     assert parse_cookie('name=Dima=User;age=28;') == {'name': 'Dima=User', 'age': '28'}
-#     assert parse_cookie('age=28;') == {'age': '28'}
-#     assert parse_cookie('tasty_cookie=strawberry;') == {'tasty_cookie': 'strawberry'}
-#     assert parse_cookie('tasty_cookie=strawberry') == {'tasty_cookie': 'strawberry'}
-#     assert parse_cookie('id=a3fWa;Expires=Thu 31 Oct 2021') == {'id': 'a3fWa', 'Expires': 'Thu 31 Oct 2021'}
-#     assert parse_cookie('Expires=Thu 31 Oct 2021;') == {'Expires': 'Thu 31 Oct 2021'}
-#     assert parse_cookie('key1=value1;key2=value2;') == {'key1': 'value1', 'key2': 'value2'}
+def parse_cookie(query: str) -> dict:
+    parsed_url = urlparse(query)
+    return dict(parse_qsl(parsed_url.path) + parse_qsl(parsed_url.params, separator=';'))
+
+
+if __name__ == '__main__':
+    assert parse_cookie('name=Dima;') == {'name': 'Dima'}
+    assert parse_cookie('') == {}
+    assert parse_cookie('name=Dima;age=28;') == {'name': 'Dima', 'age': '28'}
+    assert parse_cookie('name=Dima=User;age=28;') == {'name': 'Dima=User', 'age': '28'}
+    assert parse_cookie('age=28;') == {'age': '28'}
+    assert parse_cookie('tasty_cookie=strawberry;') == {'tasty_cookie': 'strawberry'}
+    assert parse_cookie('tasty_cookie=strawberry') == {'tasty_cookie': 'strawberry'}
+    assert parse_cookie('id=a3fWa;Expires=Thu 31 Oct 2021') == {'id': 'a3fWa', 'Expires': 'Thu 31 Oct 2021'}
+    assert parse_cookie('Expires=Thu 31 Oct 2021;') == {'Expires': 'Thu 31 Oct 2021'}
+    assert parse_cookie('key1=value1;key2=value2;') == {'key1': 'value1', 'key2': 'value2'}
